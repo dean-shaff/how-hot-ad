@@ -50,8 +50,8 @@ function App(updateRate){
     this.logger = new Logger("App","DEBUG")
     this.currentAdj = $("#adj").text();
     this.currentAdv = $("#adv").text();
-    this.colors = ['#ffff00','#ffed00','#ffd800','#ffc500','#ffb100','#ff9b00','#ff8400','#ff6a00','#ff4900','#ff0000'];
-    // this.colors = ['#0000ff','#3b26e5','#4d37cb','#5646b2','#585299','#575d7f','#506765','#456f4c','#347832','#008000'];
+    // this.colors = ['#ffff00','#ffed00','#ffd800','#ffc500','#ffb100','#ff9b00','#ff8400','#ff6a00','#ff4900','#ff0000'];
+    this.colors = ['#0000ff','#6a18e9','#8f2cd2','#aa3ebc','#be50a6','#cf618f','#de7377','#eb835d','#f5943e','#ffa500'];
     this.color = null ;
 
     this.init = function(){
@@ -106,7 +106,8 @@ function App(updateRate){
                 .format(
                     min, max, cur
                 ))
-            var r = util.range(33,43,1);
+            var inc = (max+1.0 - min) / 10.0 ;
+            var r = util.range(min,max+1.0,inc);
             var closestIndex = util.getSmallestDiffIndex(r, cur);
             self.color = self.colors[closestIndex];
             self.logger.debug("Closest Index: {}, color: {}".format(closestIndex, self.color));
