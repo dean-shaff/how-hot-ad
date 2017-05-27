@@ -60,7 +60,8 @@ function App(updateRate){
         this.makeWeatherRequest(this)()
         this.makeWordRequest(this)()
         if (this.updateRate != null){
-            this.timer = setInterval(this.makeWordRequest(this), this.updateRate)
+            this.timer1 = setInterval(this.makeWeatherRequest(this), this.updateRate*5);
+            this.timer2 = setInterval(this.makeWordRequest(this), this.updateRate);
         }
     }
 
@@ -115,6 +116,6 @@ function App(updateRate){
 }
 
 $(document).ready(function(){
-    var app = new App(null);
+    var app = new App(10000);
     app.init();
 });
