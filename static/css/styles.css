@@ -1,0 +1,32 @@
+button{
+	text-transform: none;
+}
+
+.big{
+	font-size: 12px;
+}
+
+hr{
+	padding-top:0px; 
+	padding-bottom:0px;
+	margin-top: 1px;
+	margin-bottom: 10px;
+}
+
+.edit-area-full-width{
+	height:250px;
+	width:100%;
+}
+
+.button-bold{
+	font-weight: 600;
+	color:#FFFFFF;
+	font-size: 12px;
+	/*background-color:#F03333;*/
+	/*background-color:#F47070;*/
+}
+
+/*.button-emph{
+	background-color
+}
+*/

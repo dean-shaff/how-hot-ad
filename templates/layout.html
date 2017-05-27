@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html lang='en'>
+
+<head>
+	<title></title>
+	<!-- Got this from skeleton html -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Styling -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<link type="text/css" href="{{ url_for('static',filename='css/skeleton.css')}}" rel="stylesheet">
+	<link type="text/css" href="{{ url_for('static',filename='css/styles.css')}}" rel="stylesheet">
+
+	<script type=text/javascript>
+	   = {{ request.script_root|tojson|safe }};
+	</script>
+</head>
+<body>
+	{% block body %}{% endblock %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='js/format.js')}}"></script>
+	{% block script_zone %}{% endblock %}
+</body>
+
