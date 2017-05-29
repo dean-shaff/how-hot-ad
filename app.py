@@ -3,8 +3,11 @@ import json
 import requests
 import time
 
-word_api_key = "02731985e9b675481c90357e4efe13b9"
-openweather_api_key = "356aa516be1ace0400c1bab7ed706f63"
+from synonym import get_api_synonym
+from weather import get_api_weather
+
+
+use_altervista = True
 
 app = Flask(__name__)
 
@@ -14,18 +17,15 @@ def main():
 
 @app.route("/get-weather", methods=['GET'])
 def get_weather():
-	lon, lat = 24.47, 54.37
-	client = requests.session()
-	template = "http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&mode={}&units=metric&APPID={}"
-	resp = client.request("GET", template.format(lon, lat, "json", openweather_api_key))
-	return jsonify(result=json.dumps(resp.json()))
+	cur_weather = get_api_weather()
+	return jsonify(result=json.dumps(cur_weather))
 
-@app.route("/get-synonym/<word>", methods=['GET'])
-def get_synonym(word):
+@app.route("/get-synonym/<word>/<pos>", methods=['GET'])
+def get_synonym(word, pos):
 	client = requests.session()
-	template = "http://words.bighugelabs.com/api/2/{}/{}/json"
-	resp = client.request("GET", template.format(word_api_key, word))
-	return jsonify(result=json.dumps(resp.json()))
+	synonyms = get_api_synonym(word, pos)
+	return jsonify(result=json.dumps(synonyms))
 
 if __name__ == '__main__':
+	# get_synonym('burning')
 	app.run(debug=True)
