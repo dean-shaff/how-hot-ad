@@ -117,6 +117,6 @@ function App(updateRate){
 }
 
 $(document).ready(function(){
-    var app = new App(10000);
+    var app = new App(100000);
     app.init();
 });

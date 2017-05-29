@@ -7,7 +7,7 @@ button{
 }
 
 hr{
-	padding-top:0px; 
+	padding-top:0px;
 	padding-bottom:0px;
 	margin-top: 1px;
 	margin-bottom: 10px;
@@ -26,7 +26,7 @@ hr{
 	/*background-color:#F47070;*/
 }
 
-/*.button-emph{
-	background-color
+.center {
+  display: table;
+  margin: 0 auto;
 }
-*/
